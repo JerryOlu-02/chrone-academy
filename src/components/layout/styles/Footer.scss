@@ -46,6 +46,14 @@
   gap: 24px;
   align-items: flex-end;
 
+  .btn-form {
+    .loading {
+      svg {
+        animation: spin 1s linear infinite;
+      }
+    }
+  }
+
   div {
     @include mixins.flex-row;
     width: 100%;

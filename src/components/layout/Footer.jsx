@@ -1,7 +1,31 @@
 import "./styles/Footer.scss";
 import Button from "../common/Button";
+import Overlay from "../common/Overlay";
+import { ReactComponent as Loading } from "../../assets/svg/arrow-repeat.svg";
+import { useState } from "react";
 
 export default function Footer() {
+  const [content, setContent] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const handleClose = () => {
+    setContent(null);
+  };
+
+  const handleSubmit = async () => {
+    setLoading(true);
+
+    await setTimeout(() => {
+      setContent(<Overlay success onClose={handleClose} />);
+      setLoading(false);
+    }, 5000);
+  };
+
+  const handleForm = function (e) {
+    e.preventDefault();
+    handleSubmit();
+  };
+
   return (
     <section className="footer">
       <aside className="footer_left">
@@ -11,7 +35,7 @@ export default function Footer() {
             informations about our academy
           </p>
 
-          <form className="footer_form">
+          <form onSubmit={handleForm} className="footer_form">
             <div>
               <input type="text" placeholder="First name" />
               <input type="text" placeholder="Last name" />
@@ -19,13 +43,20 @@ export default function Footer() {
             </div>
 
             <Button type="submit" className="btn-form">
-              Submit
+              {loading ? (
+                <span className="loading">
+                  <Loading />
+                </span>
+              ) : (
+                "Submit"
+              )}
             </Button>
           </form>
         </div>
 
         <span>
-          © 2025 Chrone Academy of Marketing Professionals. All Rights Reserved.
+          © 2025 Chrone Academy of Marketing Professionals. All Rights
+          Reserved.
         </span>
       </aside>
 
@@ -40,6 +71,8 @@ export default function Footer() {
           <p>Lagos, Nigeria</p>
         </div>
       </aside>
+
+      {content}
     </section>
   );
 }
