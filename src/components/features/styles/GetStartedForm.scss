@@ -1,6 +1,15 @@
 @use "/src/styles/variables";
 @use "/src/styles/mixins";
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); /* Start at 0 degrees */
+  }
+  100% {
+    transform: rotate(360deg); /* Rotate a full 360 degrees */
+  }
+}
+
 .get-started {
   background-color: variables.$background;
   width: 100%;
@@ -30,6 +39,15 @@
     padding: 14px 80px;
     width: fit-content;
     align-self: flex-end;
+
+    position: relative;
+    top: -21px;
+
+    .loading {
+      svg {
+        animation: spin 1s linear infinite;
+      }
+    }
   }
 }
 
@@ -76,6 +94,10 @@
     @include mixins.p4;
     @include mixins.inter(500);
     color: rgba(255, 255, 255, 1);
+
+    &:nth-of-type(2) {
+      color: red;
+    }
   }
 
   input {

@@ -3,8 +3,9 @@ import "./styles/Overlay.scss";
 import Button from "./Button";
 
 import { useEffect } from "react";
+import { useNavigate } from "react-router";
 
-export default function Overlay() {
+export default function Overlay({ success, message, onClose }) {
   //   const { isModalHidden, setIsModalHiddenStatus, isSuccess, errorMessage } =
   //     useFormDataContext();
 
@@ -13,7 +14,7 @@ export default function Overlay() {
       e.preventDefault();
       if (e.target.classList.contains("popup")) return;
 
-      //   setIsModalHiddenStatus(true);
+      onClose();
     };
 
     document.addEventListener("click", removeOverlay);
@@ -22,26 +23,17 @@ export default function Overlay() {
   }, []);
 
   const handleClose = () => {
-    // setIsModalHiddenStatus((prev) => (prev ? false : !prev));
+    onClose();
   };
 
   return (
     <section className={`overlay`}>
       <div className="popup">
-        {/* {isSuccess ? <Success /> : <Failed />} */}
-
-        <h3>
-          Submission Successful
-          {/* {isSuccess ? "Email Added Successfully" : "Invalid Email Address"} */}
-        </h3>
+        <h3>{success ? "Submission Successful" : "Invalid Email Address"}</h3>
 
         <p>
-          Thank you for completing your application to Chrone Academy. Our team
-          will carefully review your submission and get back to you shortly with
-          the next steps.
-          {/* {isSuccess
-            ? "You’re in! Stay tuned for Ventarca’s launch and enjoy 3 months free as our thank you."
-            : errorMessage} */}
+          {message ||
+            "Thank you for completing your application to Chrone Academy. Our team will carefully review your submission and get back to you shortly with the next steps."}
         </p>
 
         <Button onClick={() => handleClose()} className="close">
