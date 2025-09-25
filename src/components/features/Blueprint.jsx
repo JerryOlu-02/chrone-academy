@@ -1,4 +1,4 @@
-import "./styles/BluePrint.scss";
+import "./styles/Blueprint.scss";
 import BlueprintImg1 from "../../assets/images/blueprint-1.jpg";
 import BlueprintImg2 from "../../assets/images/blueprint-2.jpg";
 import BlueprintImg3 from "../../assets/images/blueprint-3.jpg";
