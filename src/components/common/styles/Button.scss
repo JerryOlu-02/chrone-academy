@@ -1,0 +1,31 @@
+@use "/src/styles/variables";
+@use "/src/styles/mixins";
+
+.btn {
+  cursor: pointer;
+  min-height: 57px;
+  gap: 12px;
+  padding: 16px 28px;
+  border-radius: 600px;
+  border-width: 0;
+  background-color: variables.$blue;
+  color: variables.$white;
+  font-size: 20px;
+  @include mixins.flex-center;
+}
+
+.btn-nav {
+  min-height: 52px;
+  padding: 14px 20px;
+  background-color: variables.$white;
+  color: variables.$black-text;
+  font-size: 18px;
+}
+
+.btn-form {
+  min-height: 50px;
+  padding: 14px 20px;
+  background-color: variables.$violet;
+  color: variables.$white;
+  @include mixins.p2;
+}

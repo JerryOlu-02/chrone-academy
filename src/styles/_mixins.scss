@@ -1,0 +1,96 @@
+@use "./variables";
+
+@mixin background($color) {
+  background-color: $color;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin h1 {
+  font-size: var(--header-1);
+  line-height: var(--line-height-header-1);
+  letter-spacing: var(--letter-spacing-header-1);
+  font-weight: 600;
+}
+
+@mixin h2 {
+  font-size: var(--header-2);
+  line-height: var(--line-height-header-2);
+  letter-spacing: var(--letter-spacing-header-2);
+  font-weight: 600;
+}
+
+@mixin h3 {
+  font-size: var(--header-3);
+  line-height: var(--line-height-header-3);
+  letter-spacing: var(--letter-spacing-header-3);
+  font-weight: 600;
+}
+
+@mixin h4 {
+  font-size: var(--header-4);
+  line-height: var(--line-height-header-4);
+  letter-spacing: var(--letter-spacing-header-4);
+}
+
+@mixin p1 {
+  font-size: var(--text-1);
+  line-height: var(--line-height-text-1);
+  letter-spacing: var(--letter-spacing-text-1);
+  font-weight: 400;
+}
+
+@mixin p2 {
+  font-size: var(--text-2);
+  line-height: var(--line-height-text-2);
+  letter-spacing: var(--letter-spacing-text-2);
+  font-weight: 400;
+}
+
+@mixin p3 {
+  font-size: var(--text-3);
+  line-height: var(--line-height-text-3);
+  letter-spacing: var(--letter-spacing-text-3);
+  font-weight: 400;
+}
+
+@mixin p4 {
+  font-size: var(--text-4);
+  line-height: var(--line-height-text-4);
+  letter-spacing: var(--letter-spacing-text-4);
+  font-weight: 400;
+}
+
+@mixin inter($weight) {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: $weight;
+  font-style: normal;
+}
+
+@mixin geist($weight) {
+  font-family: "Geist", sans-serif;
+  font-weight: $weight;
+  font-optical-sizing: auto;
+  font-style: normal;
+}

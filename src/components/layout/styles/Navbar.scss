@@ -1,0 +1,210 @@
+@use "/src/styles/variables";
+@use "/src/styles/mixins";
+
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  @include mixins.flex-space-between;
+  align-items: center;
+  padding: 17.5px 99px;
+
+  transition: background-color 0.5s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.navbar.sticky {
+  background-color: rgba(1, 2, 3, 1);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 400;
+  font-family: "Emblema One", system-ui;
+  font-style: normal;
+  //   color: variables.$white;
+  // width: 50%;
+  @include mixins.flex-center;
+  justify-content: flex-start;
+}
+
+.nav__container {
+  @include mixins.flex-row;
+  align-items: center;
+  // width: 100%;
+  justify-content: space-between;
+}
+
+.nav__links {
+  list-style-type: none;
+  @include mixins.flex-row;
+  gap: 40px;
+
+  a {
+    text-decoration: none;
+  }
+
+  li {
+    cursor: pointer;
+    @include mixins.p4;
+    letter-spacing: -1%;
+    color: variables.$white;
+    transition: color 0.5s ease-in-out;
+
+    &:hover {
+      color: variables.$white;
+    }
+  }
+}
+
+.nav_right_items {
+  @include mixins.flex-center;
+  gap: 12px;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.btn-nav {
+  width: 170px;
+}
+
+.nav__hamburger {
+  @include mixins.flex-center;
+  display: none;
+  cursor: pointer;
+
+  top: 0;
+  z-index: 15;
+  border-radius: 2px;
+  padding: 11px 8px;
+  background-color: rgba(255, 255, 255, 0.08);
+
+  span {
+    height: 2px;
+    width: 22px;
+    border-radius: 2px;
+    background-color: variables.$white;
+    transition: transform 0.3s ease-in-out;
+
+    &:last-of-type {
+      width: 11px;
+    }
+  }
+}
+
+.nav__hamburger.open {
+  span {
+    &:first-of-type {
+      transform: rotate(45deg);
+      position: relative;
+      top: 2px;
+    }
+
+    &:nth-of-type(2) {
+      transform: rotate(135deg);
+      position: relative;
+      top: -4px;
+    }
+
+    &:last-of-type {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .navbar {
+    padding: 24px 40px;
+    height: 80px;
+    background-color: rgba(1, 2, 3, 1);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .nav__container {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 80px;
+
+    flex-direction: column;
+    gap: 8px;
+    background-color: rgba(1, 2, 3, 1);
+    padding: 20px 20px 20px;
+
+    z-index: 15;
+    pointer-events: none;
+
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.7s ease-in-out;
+  }
+
+  .nav__container.open {
+    pointer-events: all;
+
+    transform: scaleX(1);
+  }
+
+  .logo {
+    z-index: 20;
+  }
+
+  .nav__links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.5s ease-in-out;
+
+    a {
+      width: 100%;
+    }
+
+    li {
+      width: 100%;
+      padding: 31px 16px;
+      background-color: rgba(16, 17, 18, 1);
+      border-radius: 8px;
+    }
+  }
+
+  .nav__links.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .btn-nav {
+    font-size: 14px;
+    z-index: 15;
+    min-height: 32px;
+    width: 130px;
+    padding: 10.5px 14px;
+    gap: 8px;
+  }
+
+  .nav__hamburger {
+    @include mixins.flex-column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .navbar {
+    padding: 24px 20px;
+  }
+
+  .logo {
+    width: 110px;
+  }
+}

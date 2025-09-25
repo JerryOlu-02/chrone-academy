@@ -1,0 +1,181 @@
+@use "/src/styles/variables";
+@use "/src/styles/mixins";
+
+.footer {
+  @include mixins.flex-row;
+  width: 100%;
+  background-color: rgba(3, 8, 29, 1);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.footer_left {
+  @include mixins.flex-column;
+  gap: 214px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 64px 64px 24px;
+  width: 100%;
+
+  div {
+    @include mixins.flex-column;
+    gap: 40px;
+    width: 100%;
+
+    p {
+      color: variables.$white;
+      font-size: 26px;
+      line-height: 36px;
+      letter-spacing: -2%;
+      font-weight: 400;
+    }
+  }
+
+  span {
+    @include mixins.p4;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 500;
+    letter-spacing: 1%;
+  }
+}
+
+.sign-up_label {
+  width: 50%;
+}
+
+.footer_form {
+  @include mixins.flex-column;
+  gap: 24px;
+  align-items: flex-end;
+
+  div {
+    @include mixins.flex-row;
+    width: 100%;
+    gap: 12px;
+
+    input {
+      border-radius: 4px;
+      border: 0.5px solid rgba(255, 255, 255, 0.3);
+      @include mixins.p4;
+      letter-spacing: 1%;
+      font-weight: 500;
+      min-height: 52px;
+      padding: 10px;
+      width: 100%;
+      background-color: transparent;
+      color: rgba(255, 255, 255, 0.5);
+
+      &::placeholder {
+        @include mixins.p4;
+        color: rgba(255, 255, 255, 0.5);
+        letter-spacing: 1%;
+      }
+
+      &:focus {
+        outline: none;
+        border: 0.5px solid rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+}
+
+.footer_right {
+  @include mixins.flex-column;
+
+  div {
+    @include mixins.flex-column;
+    gap: 16px;
+    justify-content: center;
+    padding: 0 32px;
+    @include mixins.p4;
+    letter-spacing: 1%;
+    height: 100%;
+
+    &:first-of-type {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      padding-right: 68px;
+    }
+
+    span {
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    p {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+}
+
+@media screen and (max-width: 1530px) {
+  .sign-up_label {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .sign-up_label {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  .sign-up_label {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .footer_left {
+    padding: 64px 20px 24px;
+    gap: 130px;
+
+    div {
+      p {
+        font-size: 20px;
+        line-height: 28px;
+      }
+    }
+
+    span {
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .footer_right {
+    div {
+      gap: 12px;
+
+      &:first-of-type {
+        padding-right: 32px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .footer {
+    flex-direction: column;
+  }
+
+  .footer_left {
+    gap: 40px;
+  }
+
+  .footer_form {
+    div {
+      flex-direction: column;
+    }
+
+    .btn-form {
+      width: 100%;
+    }
+  }
+
+  .footer_right {
+    div {
+      gap: 12px;
+      padding: 29px 32px;
+    }
+  }
+}

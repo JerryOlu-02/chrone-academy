@@ -1,0 +1,97 @@
+@use "/src/styles/variables";
+@use "/src/styles/mixins";
+
+.brands {
+  @include mixins.flex-column;
+  gap: 80px;
+  background-color: variables.$background;
+  padding: 150px 0;
+}
+
+.brands_header {
+  @include mixins.flex-column;
+  gap: 44px;
+  padding-left: 200px;
+
+  p {
+    color: variables.$violet;
+    text-transform: uppercase;
+    font-weight: 500;
+    @include mixins.p2;
+  }
+
+  h2 {
+    color: variables.$white;
+    font-weight: 600;
+    @include mixins.h2;
+
+    width: 50%;
+  }
+}
+
+.brands_bottom {
+  @include mixins.flex-column;
+  gap: 20px;
+}
+
+.brands_list {
+  @include mixins.flex-row;
+  width: 100%;
+  gap: 20px;
+  overflow-x: hidden;
+}
+
+.brand_item,
+.brand_item_2 {
+  @include mixins.flex-center;
+  width: inherit;
+  aspect-ratio: 1 / 1;
+  // height: 223px;
+  padding: 24px 0;
+  border: 0.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  border-width: 0.5px;
+
+  svg {
+    width: 100%;
+  }
+}
+
+.swiper,
+.swiper-wrapper {
+  z-index: unset;
+}
+
+@media screen and (max-width: 1300px) {
+  .brands_header {
+    padding-left: 100px;
+
+    h2 {
+      width: 72%;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .brands {
+    padding: 64px 0;
+    gap: 48px;
+  }
+
+  .brands_header {
+    padding: 0 20px;
+    gap: 32px;
+
+    h2 {
+      width: 72%;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .brands_header {
+    h2 {
+      width: 100%;
+    }
+  }
+}
