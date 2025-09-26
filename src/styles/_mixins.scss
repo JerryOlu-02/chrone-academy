@@ -81,6 +81,13 @@
   font-weight: 400;
 }
 
+@mixin btn-text {
+  font-size: var(--btn);
+  line-height: var(--line-height-btn);
+  letter-spacing: var(--letter-spacing-btn);
+  font-weight: 500;
+}
+
 @mixin inter($weight) {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;

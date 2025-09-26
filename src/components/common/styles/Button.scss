@@ -10,7 +10,7 @@
   border-width: 0;
   background-color: variables.$blue;
   color: variables.$white;
-  font-size: 20px;
+  @include mixins.btn-text;
   @include mixins.flex-center;
 }
 

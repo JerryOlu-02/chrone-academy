@@ -4,7 +4,6 @@ import { ReactComponent as LogoSvg } from "../../assets/svg/logo.svg";
 import { ReactComponent as Play } from "../../assets/svg/play.svg";
 import { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router";
-// import useSectionContext from "../utils/useSectionContext";
 
 export default function Navbar() {
   const navigate = useNavigate();

@@ -36,7 +36,7 @@ export default function WhyCamp({ idSection }) {
         <div className="why_camp__item">
           <h4>Learn Proven Strategies</h4>
 
-          <hr />
+          <div className="hr-line"></div>
 
           <p>
             Discover the exact strategies that turned startups into market
@@ -48,7 +48,7 @@ export default function WhyCamp({ idSection }) {
         <div className="why_camp__item">
           <h4>Work on Real Projects</h4>
 
-          <hr />
+          <div className="hr-line"></div>
 
           <p>
             No boring assignments. You’ll dive into real projects that sharpen
@@ -60,7 +60,7 @@ export default function WhyCamp({ idSection }) {
         <div className="why_camp__item">
           <h4>Learn Proven Strategies</h4>
 
-          <hr />
+          <div className="hr-line"></div>
 
           <p>
             Walk away with more than knowledge. You’ll have a polished portfolio
