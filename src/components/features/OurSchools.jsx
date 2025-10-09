@@ -16,7 +16,7 @@ export default function OurSchools({ idSection }) {
     },
     {
       image: SchoolImg2,
-      header: "School of Storytelling & Content",
+      header: "School of Strategy & Operations",
       text: "Craft stories that connect. Explore brand storytelling, social media, and content-driven commerce to build influence and lasting engagement.",
     },
     {
